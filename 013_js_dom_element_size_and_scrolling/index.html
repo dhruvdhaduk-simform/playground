@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            html {
+                background-color: black;
+                color: white;
+            }
+
+            .container {
+                /* position: relative;
+                padding: 40px; */
+            }
+
+            #box {
+                /* box-sizing: border-box; */
+                width: 300px;
+                height: 200px;
+                border: 25px solid #303030;
+                padding: 20px;
+                overflow: auto;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <div id="box">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis autem recusandae impedit dolores placeat iusto aperiam delectus eveniet accusantium provident, rem, quibusdam itaque sint unde similique obcaecati modi laudantium, eius sequi optio consequuntur nemo aliquam dicta? Totam, repudiandae. Laboriosam dolorem unde rerum officiis, consequuntur expedita magnam numquam non! Ut alias, dolorem, dignissimos soluta, ipsa consectetur enim ea a culpa delectus debitis? Amet, explicabo commodi. Quia suscipit aperiam pariatur voluptatem aliquid laborum soluta at alias, iure numquam! Inventore explicabo nobis consectetur excepturi maiores hic, quibusdam doloribus, nostrum tempora earum impedit reiciendis magni, a saepe rem dolore commodi odio ea. Adipisci, nisi.
+                <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aperiam quidem assumenda rem dolorem voluptatum numquam blanditiis, maiores facilis, omnis pariatur? Nam ipsum blanditiis quidem repudiandae optio velit architecto. Dolore officiis quidem, nisi enim omnis nemo asperiores qui cumque totam assumenda obcaecati ex reiciendis eius ipsam numquam eaque temporibus nihil minima alias? Quae quo voluptatem architecto voluptate suscipit atque deserunt autem cumque velit! Ad at vel, est sit quasi itaque iusto magnam inventore. Molestiae tempore odit quam facere? Dolores nostrum, magni corrupti, doloribus nihil quis adipisci reprehenderit assumenda sint harum velit rerum saepe ducimus? Doloribus corporis distinctio asperiores iusto culpa vel recusandae totam possimus ex minima eveniet alias, maxime fuga sit aut dolor ducimus amet, nesciunt reprehenderit? Porro cumque labore vitae numquam quas ratione dignissimos perferendis explicabo sit minus aperiam alias dicta, odit harum earum aspernatur ut quod perspiciatis dolores quam veniam! Asperiores officia rerum ad obcaecati animi aut unde nemo quod facere qui culpa voluptate quis minus aliquid ipsum, voluptatum ullam dolore quos eum pariatur dolores esse! Repellat, excepturi rem laudantium voluptatum inventore fuga sint modi nostrum nemo eaque beatae, ad voluptas, tenetur unde impedit quaerat neque. Cum dolore voluptatem, deleniti ex vero aperiam impedit corporis non aspernatur velit. -->
+            </div>
+        </div>
+
+
+        <script>
+            const box = document.querySelector("#box");
+            console.log(`offsetParent : ${box.offsetParent}`);
+            console.log(`offsetLeft : ${box.offsetLeft}`);
+            console.log(`offsetTop : ${box.offsetTop}`);
+            console.log(`offsetWidth : ${box.offsetWidth}`);
+            console.log(`offsetHeight : ${box.offsetHeight}`);
+            console.log(`clientLeft : ${box.clientLeft}`);
+            console.log(`clientTop : ${box.clientTop}`);
+            console.log(`clientWidth : ${box.clientWidth}`);
+            console.log(`clientHeight : ${box.clientHeight}`);
+            console.log(`scrollLeft : ${box.scrollLeft}`);
+            console.log(`scrollTop : ${box.scrollTop}`);
+            console.log(`scrollWidth : ${box.scrollWidth}`);
+            console.log(`scrollHeight : ${box.scrollHeight}`);
+        </script>
+    </body>
+</html>
