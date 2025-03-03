@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+:root {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100dvw;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.content {
+    background-color: #202020;
+
+    height: 10rem;
+    width: 100%;
+    max-width: 50rem;
+    padding: 1rem;
+
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.box {
+    background-color: #383838;
+    
+    height: 100%;
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scrollbox {
+    width: 10rem;
+    height: 3.5rem;
+    background-color: #202020;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.scrollboxitems {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    gap: 3px;
+}
+.scrollboxitems > div {
+    background-color: #5c5c5c;
+    flex: 1;
+}
+
+.scrollthumb-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.slider {
+    appearance: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+
+    --thumb-width: 3rem;
+}
+.slider::-webkit-slider-thumb
+{
+    appearance: none;
+    width: var(--thumb-width);
+    height: 2.5rem;
+    border-radius: 0;
+    background-color: transparent;
+
+    border: 2px solid #00ccff;
+    
+    cursor: pointer;
+}
+.slider::-moz-range-thumb {
+    width: var(--thumb-width);
+    height: 2.5rem;
+    border-radius: 0;
+    background-color: transparent;
+
+    border: 2px solid #00ccff;
+    
+    cursor: pointer;
+}
+.slider::-webkit-slider-thumb:hover
+{
+    opacity: 0.5;
+    background-color: #525252;
+}
+
+.slider::-webkit-slider-thumb:active
+{
+    border: none;
+    opacity: 0.5;
+    background-color: white;
+}
