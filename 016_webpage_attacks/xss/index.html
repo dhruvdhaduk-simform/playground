@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross Site Scripting Demo</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            max-width: 100rem;
+            margin: auto;
+            font-family: sans-serif;
+        }
+
+        form > div {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            padding: 1rem;
+            gap: 0.5rem;
+        }
+
+        .input-name {
+            background-color: black;
+            color: white;
+            width: 100%;
+            max-width: 30rem;
+            height: 2.75rem;
+            font-size: 1.1rem;
+            border-radius: 1rem;
+            border: 1px solid #3b3b3b;
+        }
+
+        .input-name:focus {
+            outline: none;
+            border: 1px solid #6b6b6b;
+        }
+
+        .input-comment {
+            resize: none;
+            width: 100%;
+            height: 5rem;
+            background-color: black;
+            color: white;
+            border: 1px solid #3b3b3b;
+            border-radius: 0.5rem;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+        }
+        .input-comment:focus {
+            outline: none;
+            border: 1px solid #6b6b6b;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 0.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            user-select: none;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        button:active {
+            opacity: 0.8;
+        }
+
+        .comment-list > li {
+            padding: 0.5rem;
+        }
+        
+        .name {
+            font-size: 1.35rem;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-right: 1.5rem;
+        }
+
+        .comment {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <form id="new-comment-form">
+        <div>
+            <label for="name">Name</label>
+            <input class="input-name" id="name" type="text" required>
+        </div>
+        <div>
+            <label for="comment">Comment</label>
+            <textarea id="comment" class="input-comment" required></textarea>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+
+    <h1>Comments</h1>
+
+    <ul class="comment-list">
+        {{#comments}}
+        <li>
+            <span class="name">{{name}}</span>
+            <span class="comment">{{comment}}</span>
+        </li>
+        {{/comments}}
+    </ul>
+
+    <script>
+        const form = document.querySelector("#new-comment-form");
+        const inputName = document.querySelector("#name");
+        const inputComment = document.querySelector("#comment");
+
+        let storedName = localStorage.getItem('name');
+        if (storedName) {
+            inputName.value = storedName;
+        }
+
+        form.addEventListener("submit", async function(e) {
+            let name = inputName.value;
+            localStorage.setItem('name', name);
+            let comment = inputComment.value;
+
+            let response = await fetch("http://localhost:3000/comments", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, comment })
+            });
+
+            window.location.reload();
+            
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

